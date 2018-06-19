@@ -10,19 +10,27 @@ namespace Model
     {
         private string nome;
 
+        private string nome2;
+
+        private string nome3;
+
         private string familia;
+
+        private string familia2;
 
         private string cor;
 
+        private string cor2;
+
         private string corAsa;
 
-        private string tamanhoAsa;
+        private decimal tamanhoAsa;
 
-        private string asaQuebrada;
+        private bool asaQuebrada;
 
-        private string sexo;
+        private bool ehMulher;
 
-        private string barulho;
+        private bool barulho;
 
         private string elemento;
 
@@ -40,10 +48,50 @@ namespace Model
 
                 if (value.Count() == 1)
                 {
-                    throw new Exception("Nome deve conter no minimo 2 caracteres");
+                    throw new Exception("Nome deve conter no mínimo 2 caracteres");
                 }
 
                 nome = value;
+            }
+        }
+
+        public string Nome2
+        {
+            get { return nome2; }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Nome deve ser preenchido");
+                }
+
+                if (value.Count() == 1)
+                {
+                    throw new Exception("Nome deve conter no mínimo 2 caracteres");
+                }
+
+                nome2 = value;
+            }
+        }
+
+        public string Nome3
+        {
+            get { return nome3; }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Nome deve ser preenchido");
+                }
+
+                if (value.Count() == 1)
+                {
+                    throw new Exception("Nome deve conter no mínimo 2 caracteres");
+                }
+
+                nome3 = value;
             }
         }
 
@@ -67,6 +115,26 @@ namespace Model
             }
         }
 
+        public string Familia2
+        {
+            get { return familia2; }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Família deve ser preenchida");
+                }
+
+                if (value.Count() == 1)
+                {
+                    throw new Exception("Família deve conter no mínimo 2 caracteres");
+                }
+
+                familia2 = value;
+            }
+        }
+
         public string Cor
         {
             get { return cor; }
@@ -78,12 +146,22 @@ namespace Model
                     throw new Exception("Cor deve ser preenchida");
                 }
 
-                if (value.Count() == 1)
+                cor = value;
+            }
+        }
+
+        public string Cor2
+        {
+            get { return cor2; }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
                 {
-                    throw new Exception("Cor deve conter no mínimo 2 caracteres");
+                    throw new Exception("Cor deve ser preencher");
                 }
 
-                cor = value;
+                cor2 = value;
             }
         }
 
@@ -107,75 +185,60 @@ namespace Model
             }
         }
 
-        public string TamanhoAsa
+        public decimal TamanhoAsa
         {
             get { return tamanhoAsa; }
 
             set
             {
-                if (value.Count() == 0)
+                if (value <= 0)
                 {
-                    throw new Exception("Valor deve conter mais que Zero");
+                    throw new Exception("Tamanho da asa deve conter pequeno, médio e grande");
                 }
 
                 tamanhoAsa = value;
             }
         }
 
-        public string AsaQuebrada
+        public bool AsaQuebrada
         {
             get { return asaQuebrada; }
 
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (asaQuebrada == true)
                 {
                     throw new Exception("Asa quebrada deve ser preenchida");
-                }
-
-                if (value.Count() == 1)
-                {
-                    throw new Exception("Asa quebrada deve conter no mínimo 2 caracteres");
                 }
 
                 asaQuebrada = value;
             }
         }
 
-        public string Sexo
+        public bool EhMulher
         {
-            get { return sexo; }
+            get { return ehMulher; }
 
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (ehMulher == true)
                 {
                     throw new Exception("Sexo deve ser preenchida");
                 }
 
-                if (value.Count() == 1)
-                {
-                    throw new Exception("Sexo deve conter no mínimo 2 caracteres");
-                }
-
-                sexo = value;
+                ehMulher = value;
             }
         }
 
-        public string Barulho
+        public bool Barulho
         {
             get { return barulho; }
 
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (barulho == true)
                 {
                     throw new Exception("Faz barulho deve ser preenchida");
-                }
-
-                if (value.Count() == 1)
-                {
-                    throw new Exception("Faz barulho deve conter no mínimo 2 caracteres");
                 }
 
                 barulho = value;
@@ -203,12 +266,19 @@ namespace Model
         }
 
 
-        public Fadas2(string nome, string familia, string cor, string sexo)
+        public Fadas2(string nome, string familia, string cor, bool ehMulher)
         {
             Nome = nome;
             Familia = familia;
             Cor = cor;
-            Sexo = sexo;
+            EhMulher = ehMulher;
+        }
+
+        public Fadas2(string nome2, string familia2, string cor2)
+        {
+            Nome2 = nome2;
+            Familia2 = familia2;
+
         }
     }
 }
